@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 :root {
     color-scheme: dark;
     --bg: #050505;
@@ -360,7 +358,9 @@ h1 span { color: var(--blue); }
     font-weight: 600;
 }
 
-.hero-role span { color: var(--blue-bright); }
+.hero-role span { white-space: nowrap; }
+.hero-role .hero-separator { color: var(--muted); }
+.hero-role .hero-focus { color: var(--blue-bright); }
 
 .hero-description {
     max-width: 510px;
@@ -397,7 +397,7 @@ h1 span { color: var(--blue); }
 .button-secondary:hover { border-color: var(--blue-bright); background: rgba(22, 69, 126, .25); }
 :root[data-theme="light"] .button-secondary { border-color: rgba(35, 91, 167, .3); background: rgba(255, 255, 255, .72); }
 :root[data-theme="light"] .button-secondary:hover { background: rgba(219, 233, 252, .9); }
-.mail-icon { font-size: 1.05rem; }
+.mail-icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 .social-links {
     display: flex;
@@ -508,8 +508,8 @@ h1 span { color: var(--blue); }
 .code-note {
     position: absolute;
     z-index: 2;
-    top: 52px;
-    right: -14px;
+    bottom: 84px;
+    left: -28px;
     padding: 14px 17px;
     border: 1px solid rgba(48, 133, 255, .3);
     border-radius: 12px;
@@ -702,7 +702,7 @@ h1 span { color: var(--blue); }
 
 .contact-links {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 12px;
 }
 
@@ -735,7 +735,7 @@ h1 span { color: var(--blue); }
 }
 
 .contact-icon img { width: 21px; height: 21px; filter: brightness(0) invert(1); }
-.social-icon { font-family: Arial, sans-serif; font-weight: 700; }
+.contact-icon .mail-icon { width: 21px; height: 21px; }
 .contact-link small, .contact-link strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .contact-link small { margin-bottom: 2px; color: var(--muted); font-size: .72rem; }
 .contact-link strong { color: var(--text); font-size: .84rem; font-weight: 600; }
@@ -764,7 +764,7 @@ h1 span { color: var(--blue); }
     .hero { min-height: 560px; grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr); gap: 28px; }
     .hero-visual { min-height: 380px; }
     .portrait-frame { height: 380px; }
-    .code-note { right: -8px; }
+    .code-note { left: -8px; }
     .about, .experience, .skills, .contact { gap: 36px; }
     .principles { gap: 9px; }
     .principle-card { padding: 16px 13px; }
@@ -784,18 +784,20 @@ h1 span { color: var(--blue); }
     }
     .brand { grid-area: brand; margin-right: 0; font-size: .9rem; }
     .brand-mark { font-size: 1.42rem; }
-    .main-nav { grid-area: nav; width: 100%; justify-content: space-between; gap: 10px; overflow-x: auto; }
-    .main-nav a { flex: 0 0 auto; padding: 6px 0; font-size: .74rem; }
+    .main-nav { grid-area: nav; width: 100%; justify-content: flex-start; gap: 22px; overflow-x: auto; }
+    .main-nav a { flex: 0 0 auto; padding: 10px 0; font-size: .84rem; }
     .language-control { grid-area: language; }
     .language-trigger { min-width: 52px; min-height: 38px; justify-content: center; gap: 5px; padding-inline: 8px; font-size: .74rem; }
     .language-trigger #language-current { display: none; }
     .theme-toggle { grid-area: theme; width: 38px; height: 38px; }
     .hero { min-height: auto; grid-template-columns: 1fr; gap: 38px; padding-block: 58px 54px; }
     h1 { font-size: clamp(3rem, 13vw, 4.5rem); }
+    .hero-role .hero-separator { display: none; }
+    .hero-role .hero-focus { display: block; }
     .hero-description { font-size: .97rem; }
     .hero-visual { min-height: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; }
     .portrait-frame { width: min(100%, 390px); height: 350px; }
-    .code-note { position: relative; top: auto; right: auto; order: -1; align-self: center; font-size: .68rem; }
+    .code-note { display: none; }
     .social-links { gap: 14px 18px; }
     .about, .experience, .skills, .contact { grid-template-columns: 1fr; gap: 30px; padding-block: 58px; }
     .about-copy h2, .experience-heading h2, .skills-intro h2, .contact-copy h2 { font-size: 2.25rem; }
